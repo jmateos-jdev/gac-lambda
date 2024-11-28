@@ -2,10 +2,10 @@ import { APIGatewayProxyEvent, APIGatewayProxyResultV2, Handler} from "aws-lambd
 import * as _ from "lodash";
 
 export const handler: Handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResultV2> => {
-    const randomNumber = _.random(50);
+    const randomNumber = _.random(100,999);
     return {
         statusCode: 200,
-        body: JSON.stringify({ message: `El número aleatorio es ${randomNumber}` }),
+        body: `El número aleatorio es ${randomNumber}`
     };
 };
 
