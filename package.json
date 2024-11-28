@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "name": "gac-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.146",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^22.10.1",
+    "@vercel/ncc": "^0.38.3"
+  }
+}
