@@ -28,4 +28,4 @@ jobs:
                 password: ${{ secrets.SSH_KEY }}
                 port: ${{ secrets.SSH_PORT }}
                 script: |
-                  pm2 stop 1
+                  scp -r ./dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/data/gac
