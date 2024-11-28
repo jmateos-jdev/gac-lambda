@@ -1,0 +1,31 @@
+name: Deploy Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+    deploy-lambda:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.2.2
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4.1.0
+              with:
+                node-version: 22
+            - name: Install dependencies
+              env:
+                CI: true
+              run: npm ci
+            - name: Deploy
+              run: |
+                npx ncc build index.ts 
+            - name: SSH Remote Commands
+              uses: appleboy/ssh-action@v1.2.0
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNAME }}
+                password: ${{ secrets.SSH_KEY }}
+                port: ${{ secrets.SSH_PORT }}
+                script: |
+                  pm2 stop 1
