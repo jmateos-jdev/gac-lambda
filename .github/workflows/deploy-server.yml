@@ -33,7 +33,7 @@ jobs:
                   mkdir -p /data/gac
                   echo "Directorio creado o verificado"
             - name: Copy files to remote server
-              uses: appleboy/scp-action@v0.17.1
+              uses: appleboy/scp-action@v0.1.7
               with:
                 host: ${{ secrets.SSH_HOST }}
                 username: ${{ secrets.SSH_USERNAME }}
